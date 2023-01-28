@@ -17,6 +17,12 @@
     />
 
     <title>Loan Calculator</title>
+<style>
+  #loading , #results {
+    display: none;
+  }
+</style>
+
   </head>
   <body class="bg-dark">
     <div class="container">
@@ -75,17 +81,17 @@
                 <input
                   type="submit"
                   value="Calculate"
-                  class="btn btn-dark btn-block"
+                  class="btn btn-dark btn-block "
                 />
               </div>
             </form>
             <!-- LOADER -->
-            <!-- <div class="loading">
+            <div id="loading">
                 <img src="./images/loading.gif" alt="loading icon">
-            </div> -->
+            </div>
 
             <!--RESULT-->
-            <div class="pt-4" id="results"></div>
+            <div class="pt-4" id="results">
             <h5>Results</h5>
 
             <div class="form-group">
@@ -135,6 +141,11 @@
                 </div>
               </div>
             </div>
+
+          </div>
+
+
+
           </div>
         </div>
       </div>
