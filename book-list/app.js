@@ -7,7 +7,7 @@ function Book(title, author, isbn) {
 
 //UI constructor
 function UI() {}
-UI.prototype.addBookToLIst = function (book) {
+UI.prototype.addBookToList = function (book) {
   const list = document.getElementById("book-list");
   const row = document.createElement("tr");
   row.innerHTML = `<td>${book.title}</td> <td>${book.author}</td> <td>${book.isbn}</td> <td> <a href="#" class="delete">X</a> </td>`;
@@ -25,6 +25,9 @@ div.appendChild(document.createTextNode(message));
 const container = document.querySelector('.container');
 const form = document.querySelector('#book-form');
 container.insertBefore(div, form);
+setTimeout(function (){
+  document.querySelector('.alert').remove();
+}, 3000)
 }
 
 //event listeners
@@ -43,7 +46,10 @@ document.getElementById("book-form").addEventListener("submit", function (e) {
    ui.showAlert('Please fill in all inputs!' , 'error');
   } else {
     //instantiate UI
-    ui.addBookToLIst(book);
+    ui.addBookToList(book);
+
+    //show success
+    ui.showAlert('Book added!' , 'success');
 
     //clear form
     ui.clearFields();
