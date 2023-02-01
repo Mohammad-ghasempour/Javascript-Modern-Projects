@@ -18,17 +18,23 @@ UI.prototype.clearFields = function () {
   document.getElementById("author").value = "";
   document.getElementById("isbn").value = "";
 };
-UI.prototype.showAlert = function(message , className){
-const div = document.createElement('div');
-div.className=`alert ${className}`;
-div.appendChild(document.createTextNode(message));
-const container = document.querySelector('.container');
-const form = document.querySelector('#book-form');
-container.insertBefore(div, form);
-setTimeout(function (){
-  document.querySelector('.alert').remove();
-}, 3000)
-}
+UI.prototype.deleteElement = function (target) {
+  if (confirm("Are you sure to delete this item?")) {
+    target.parentElement.parentElement.remove();
+  }
+};
+
+UI.prototype.showAlert = function (message, className) {
+  const div = document.createElement("div");
+  div.className = `alert ${className}`;
+  div.appendChild(document.createTextNode(message));
+  const container = document.querySelector(".container");
+  const form = document.querySelector("#book-form");
+  container.insertBefore(div, form);
+  setTimeout(function () {
+    document.querySelector(".alert").remove();
+  }, 3000);
+};
 
 //event listeners
 document.getElementById("book-form").addEventListener("submit", function (e) {
@@ -43,15 +49,25 @@ document.getElementById("book-form").addEventListener("submit", function (e) {
 
   //validate form
   if (title === "" || author === "" || isbn === "") {
-   ui.showAlert('Please fill in all inputs!' , 'error');
+    ui.showAlert("Please fill in all inputs!", "error");
   } else {
     //instantiate UI
     ui.addBookToList(book);
 
     //show success
-    ui.showAlert('Book added!' , 'success');
+    ui.showAlert("Book added!", "success");
 
     //clear form
     ui.clearFields();
   }
+});
+
+document.getElementById("book-list").addEventListener("click", function (e) {
+  if (e.target.className === "delete") {
+    const ui = new UI();
+    ui.deleteElement(e.target);
+    ui.showAlert("Book deleted successfully", "success");
+  }
+
+  e.preventDefault;
 });
