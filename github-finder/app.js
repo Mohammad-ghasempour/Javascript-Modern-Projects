@@ -11,13 +11,14 @@ searchInput.addEventListener('keyup' , (e)=>{
         github.getUser(userText)
         .then(data=>{
             if (data.profile.message === 'Not Found'){
-               // show alert
+               ui.showAlert('User not found!' , 'alert alert-danger')
+              // ui.clearAlert('alert-danger');
             }else{
-               ui.shoeProfile(data.profile);
+               ui.showProfile(data.profile);
             }
         })
     }
     else{
-        //clear profile
+        ui.clearProfile();
     }
 })

@@ -1,10 +1,9 @@
 class UI {
-    constructor(){
-        this.profile = document.getElementById('profile')
-    }
-    shoeProfile(user){
-        console.log(user)
-        this.profile.innerHTML = `
+  constructor() {
+    this.profile = document.getElementById("profile");
+  }
+  showProfile(user) {
+    this.profile.innerHTML = `
         <div class="card card-body mb-3">
           <div class="row">
             <div class="col-md-3">
@@ -30,5 +29,27 @@ class UI {
         <h3 class="page-heading mb-3">Latest Repos</h3>
         <div id="repos"></div>
       `;
+  }
+  clearProfile() {
+    this.profile.innerHTML = "";
+  }
+  showAlert(message, className) {
+    this.clearAlert();
+    const div = document.createElement("div");
+    div.className = className;
+    div.appendChild(document.createTextNode(message));
+    const container = document.querySelector(".searchContainer");
+    const search = document.querySelector(".search");
+    container.insertBefore(div, search);
+     
+      setTimeout(() => {
+      this.clearAlert();
+    }, 2000);
+  }
+  clearAlert() {
+    const currentAlert = document.querySelector(`.alert`);
+    if (currentAlert) {
+      currentAlert.remove();
     }
+  }
 }
