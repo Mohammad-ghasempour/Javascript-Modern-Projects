@@ -1,4 +1,4 @@
-const weather = new Weather('tehran');
+const weather = new Weather("ahvaz");
 
 
 // setTimeout(()=>{
@@ -6,11 +6,23 @@ const weather = new Weather('tehran');
 //     console.log('shiraz')
 // } , 5000)
 
-weather.getWeather()
-.then((result)=>{
-    console.group(result)
-})
-.catch((error)=>{
-    console.log('something went wrong!' , error);
-})
+const allEventListeners = ()=>{
+    document.addEventListener("DOMContentLoaded", getWeather());
+}
 
+
+const getWeather = () => {
+  weather
+    .getWeather()
+    .then((result) => {
+      console.log(result);
+      const ui = new UI();
+      ui.paint(result)
+    })
+    .catch((error) => {
+      console.log("something went wrong!", error);
+    });
+};
+
+
+allEventListeners();
