@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/litera/bootstrap.min.css"
@@ -21,7 +23,7 @@
       <div class="col-md-6 mx-auto text-center bg-primary mt-5 p-5 rounded">
         <h1 id="w-location"></h1>
         <h3 class="text-dark" id="w-desc"></h3>
-        <h3 class="d-inline" id="w-string"></h3> <span>&#8451</span>
+        <h3 class="d-inline" id="w-string"></h3> <span id="w-degreeSymbol"></span>
         <img id="w-icon">
         <ul id="w-details" class="list-group mt-3">
           <li class="list-group-item" id="w-humidity"></li>
@@ -30,7 +32,7 @@
           <li class="list-group-item" id="w-pressure"></li>
         </ul>
         <hr>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#locModal">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#locModal">
             Change Location
           </button>
       </div>
@@ -43,9 +45,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="locModalLabel">Choose Location</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form id="w-form">
@@ -60,31 +60,51 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button id="w-change-btn" type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
   </div>
+ 
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch new 5
+</button>
 
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
 
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"
-    ></script>
-    <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-    crossorigin="anonymous"
-    ></script>
-    <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
-    integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-    ></script>
+
+   
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.slim.min.js" integrity="sha512-jxwTCbLJmXPnV277CvAjAcWAjURzpephk0f0nO2lwsvcoDMqBdy1rh1jEwWWTabX1+Grdmj9GFAgtN22zrV0KQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js" integrity="sha512-6UofPqm0QupIL0kzS/UIzekR73/luZdC6i/kXDbWnLOJoqwklBK6519iUnShaYceJ0y4FaiPtX/hRnV/X/xlUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
+
+
     <script src="storage.js"></script>
     <script src="weather.js"></script>
     <script src="ui.js"></script>
