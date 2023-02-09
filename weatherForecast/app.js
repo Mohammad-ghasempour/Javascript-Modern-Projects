@@ -1,4 +1,6 @@
-const weather = new Weather("ahvaz");
+const storage = new Storage;
+const currentCity = storage.getLocationData();
+const weather = new Weather(currentCity);
 const ui = new UI();
 
 const allEventListeners = () => {
@@ -26,6 +28,9 @@ const newLocationRequest = () => {
   getWeather();
   //To close the modal
   $("#locModal").modal("hide");
+
+  //set city to local storage
+  storage.setLocationData(city);
 };
 
 allEventListeners();
