@@ -12,7 +12,7 @@ const ItemCtrl = (() => {
     item: [
       { id: 0, name: "Steak Dinner", calories: 1200 },
       { id: 1, name: "Cookie", calories: 400 },
-      { id: 0, name: "Eggs", calories: 300 },
+      { id: 2, name: "Eggs", calories: 300 },
     ],
     currentItem: null,
     totalCalories: 0,
@@ -33,6 +33,9 @@ const ItemCtrl = (() => {
 const UICtrl = (() => {
   const UISelectors = {
     itemList: "#item-list",
+    addBtn: ".add-btn",
+    itemNameInput: "#item-name",
+    itemCaloriesInput: "#item-calories",
   };
   return {
     populateItemLists: (items) => {
@@ -47,11 +50,25 @@ const UICtrl = (() => {
       });
       document.querySelector(UISelectors.itemList).innerHTML = html;
     },
+    getSelectors: () => {
+      return UISelectors;
+    },
   };
 })();
 
 //App controller
 const App = ((ItemCtrl, UICtrl) => {
+  const loadEventListeners = () => {
+    const UISelectors = UICtrl.getSelectors();
+    document
+      .querySelector(UISelectors.addBtn)
+      .addEventListener("click", itemAddSubmit);
+  };
+
+  const itemAddSubmit = (e) => {
+    e.preventDefault();
+  };
+
   //Public methods
   return {
     init: () => {
