@@ -1,4 +1,8 @@
-//Item controller
+
+const StorageCtrl = (()=>{
+  
+})()
+
 const ItemCtrl = (() => {
   //Item constructor
   function Item(id, name, calories) {
@@ -217,7 +221,6 @@ const App = ((ItemCtrl, UICtrl) => {
       .addEventListener("click", itemDeleteSubmit);
       document.querySelector(UISelectors.clearBtn).addEventListener("click" , clearAllItemsClick)
   };
-
   const itemAddSubmit = (e) => {
     const input = UICtrl.getItemInput();
     if (input.name !== "" && input.calories !== "") {
