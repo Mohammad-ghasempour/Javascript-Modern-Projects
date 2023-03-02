@@ -54,14 +54,12 @@ const ItemCtrl = (() => {
     this.name = name;
     this.calories = calories;
   }
-
   //Data structure / state
   const data = {
     item: StorageCtrl.getItemsFromStorage(),
     currentItem: null,
     totalCalories: 0,
   };
-
   //Public methods
   return {
     getItems: () => {
